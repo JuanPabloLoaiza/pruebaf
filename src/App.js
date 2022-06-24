@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { AuthContext } from './Auth/AuthContext';
+import { Index } from './Routes/Index';
 
 function App() {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContext.Provider value={{
+        user,
+        setUser
+      }}>
+        <Index />
+      </AuthContext.Provider>
     </div>
   );
 }

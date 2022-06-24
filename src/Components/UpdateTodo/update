@@ -1,0 +1,67 @@
+{
+                    todo !== undefined &&    todo.length > 0 ?
+                        (
+                            <><div className="row divs">
+                                <div className="col-md-3 divs">
+                                    <label className="mb-3">Título</label>
+                                    <input
+                                        type="text"
+                                        name="title"
+                                        className="form-control mb-3"
+                                        autoComplete="off"
+                                        value={title}
+                                        onChange={handleInputChange} />
+                                </div>
+                            </div><div className="row divs">
+                                    <div className="col-md-3 divs">
+                                        <label className="mb-3">Descripción</label>
+                                        <input
+                                            type="text"
+                                            name="description"
+                                            className="form-control mb-3"
+                                            autoComplete="off"
+                                            value={description}
+                                            onChange={handleInputChange} />
+                                    </div>
+                                </div><div className="row divs">
+                                    <div className="col-md-2 divs">
+                                        <div className="form-check">
+                                            <input className="form-check-input"
+                                                type="radio"
+                                                name='done'
+                                                value='Realizado'
+                                                onChange={handleInputChange}
+                                                checked={done === 'Realizado'} />
+                                            <label className="form-check-label">
+                                                Realizado
+                                            </label>
+                                        </div>
+                                        <div className="form-check">
+                                            <input className="form-check-input"
+                                                type="radio"
+                                                name='done'
+                                                checked={done === 'No realizado'}
+                                                value='No realizado'
+                                                onChange={handleInputChange} />
+                                            <label className="form-check-label">
+                                                No realizado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div><div className="row divs">
+                                    <div className="col-md-3 mt-3 divs">
+                                        <button
+                                            onClick={updateATodo}
+                                            type="submit"
+                                            className="btn btn-primary mt-1 btn-block"
+                                            disabled={title === '' || description === ''}
+                                        >
+                                            Agregar
+                                        </button>
+                                    </div>
+                                </div></>
+                        ) :
+                        (
+                            null
+                        )
+                }
