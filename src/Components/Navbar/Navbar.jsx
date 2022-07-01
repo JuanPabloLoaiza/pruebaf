@@ -9,8 +9,8 @@ export const Navbar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        setUser(user, user.logged = false);
-        localStorage.setItem('user', JSON.stringify(user));
+        setUser(null);
+        localStorage.clear();
         navigate('/login', {
             replace: true
         });
